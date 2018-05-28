@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+
+	<property name="PATTERN"
+		value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n" />
+
+	<statusListener
+		class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>
+				${PATTERN}
+			</pattern>
+		</layout>
+	</appender>
+
+	<logger name="org.springframework" level="info"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.apache" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="ch.qos.logback.classic" level="info"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.sid" level="debug" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root>
+		<level value="debug" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
