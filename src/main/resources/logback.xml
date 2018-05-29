@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
+<!DOCTYPE xml>
 <configuration scan="true" scanPeriod="3 seconds">
 
 	<property name="PATTERN"
-		value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n" />
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ${PID:- } --- [%thread] %-40.40logger{39} : %m%n" />
 
 	<statusListener
 		class="ch.qos.logback.core.status.OnConsoleStatusListener" />
@@ -11,30 +11,58 @@
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
-			<pattern>
-				${PATTERN}
-			</pattern>
+			<pattern>${PATTERN}</pattern>
 		</layout>
 	</appender>
 
+	<!-- logback -->
+	<logger name="ch.qos.logback" level="error" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- Spring -->
 	<logger name="org.springframework" level="info"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<logger name="org.apache" level="info" additivity="false">
+	<!-- Apache Global -->
+	<logger name="org.apache" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<logger name="ch.qos.logback.classic" level="info"
+	<!-- Apache Commons Digester -->
+	<logger name="org.apache.commons.digester" level="info"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
+	<!-- Apache Commons BeanUtils -->
+	<logger name="org.apache.commons.beanutils" level="info"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- Apache Struts Util -->
+	<logger name="org.apache.struts.util" level="info"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- ================================== -->
+	<!-- Apache Struts Action (very useful) -->
+	<!-- ================================== -->
+	<logger name="org.apache.struts.action" level="debug"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- Application -->
 	<logger name="org.sid" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
+	<!-- Root -->
 	<root>
 		<level value="debug" />
 		<appender-ref ref="STDOUT" />
