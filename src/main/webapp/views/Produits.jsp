@@ -77,7 +77,8 @@
 					<td>
 						<html:form action="produits/delete" method="post">
 							<html:hidden property="ref" value="${p.reference}" />
-							<html:submit value="Delete" onclick="javascript:return confirm('Are you sure?');" />
+							<bean:define id="myMsg"><bean:message key='confirm.delete'/></bean:define>
+							<html:submit value="Delete" onclick="javascript:return confirm('${myMsg}')" />
 						</html:form>
 					</td>
 					<td>
