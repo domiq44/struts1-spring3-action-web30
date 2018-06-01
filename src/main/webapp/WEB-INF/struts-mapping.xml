@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="produitForm"
+			type="org.sid.form.ProduitForm" />
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/produits/index" name="produitForm"
+			type="org.sid.web.ProduitIndexAction" scope="request"
+			validate="false" input="/views/Produits.jsp">
+			<forward name="success" path="/views/Produits.jsp" />
+		</action>
+
+		<action path="/produits/save" name="produitForm"
+			type="org.sid.web.ProduitSaveAction" scope="request" validate="false"
+			input="/views/Produits.jsp">
+			<forward name="success" path="/views/Produits.jsp" />
+		</action>
+
+		<action path="/produits/edit" name="produitForm"
+			type="org.sid.web.ProduitEditAction" scope="request" validate="false"
+			input="/views/Produits.jsp">
+			<forward name="success" path="/views/Produits.jsp" />
+		</action>
+
+		<action path="/produits/delete" name="produitForm"
+			type="org.sid.web.ProduitDeleteAction" scope="request"
+			validate="false" input="/views/Produits.jsp">
+			<forward name="success" path="/views/Produits.jsp" />
+		</action>
+
+		<action path="/example" type="org.sid.web.ExampleAction">
+			<forward name="example" path="/views/example.jsp" />
+		</action>
+
+	</action-mappings>
+
+</struts-config>
+

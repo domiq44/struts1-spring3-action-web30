@@ -27,11 +27,18 @@ public class ProduitIndexAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		LOG.debug("execute()");
 
+		int page = 1;
+		try {
+			page = Integer.parseInt(request.getParameter("page"));
+		} catch (NumberFormatException e) {
+		}
+		int size = 3;
+
 		ProduitForm produitForm = (ProduitForm) form;
 
 		produitForm.setEditMode(false);
 		produitForm.setProduit(new Produit());
-		produitForm.setProduits(service.listProduits());
+		produitForm.setPages(service.newPageRequest(page, size));
 
 		return mapping.findForward("success");
 	}

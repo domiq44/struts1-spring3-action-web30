@@ -47,8 +47,17 @@ public class CatalogueDaoImpl implements ICatalogueDao {
 	@PostConstruct
 	public void initialisation() {
 		LOG.info("Initialisation des produits");
-		addProduit(new Produit("ABCD", "ABCD", 9800, 5, true));
-		addProduit(new Produit("XYWS", "POUY", 7600, 4, true));
-		addProduit(new Produit("ZERT", "SDERK", 3466, 7, true));
+		addProduit(new Produit("AAAA", "ABCD", 9800, 5, true));
+		addProduit(new Produit("BBBB", "POUY", 7600, 4, true));
+		addProduit(new Produit("CCCC", "SDERK", 3466, 7, true));
+		addProduit(new Produit("DDDD", "ABCD", 9800, 5, true));
+		addProduit(new Produit("EEEE", "POUY", 7600, 4, true));
+		addProduit(new Produit("FFFF", "SDERK", 3466, 7, true));
+		addProduit(new Produit("GGGG", "ABCD", 9800, 5, true));
+		addProduit(new Produit("HHHH", "POUY", 7600, 4, true));
+		addProduit(new Produit("IIII", "SDERK", 3466, 7, true));
+		addProduit(new Produit("JJJJ", "ABCD", 9800, 5, true));
+		addProduit(new Produit("KKKK", "POUY", 7600, 4, true));
+		addProduit(new Produit("LLLL", "SDERK", 3466, 7, true));
 	}
 }

@@ -27,12 +27,18 @@ public class ProduitEditAction extends Action {
 		LOG.debug("execute()");
 
 		String ref = request.getParameter("ref");
+		int page = 1;
+		try {
+			page = Integer.parseInt(request.getParameter("page"));
+		} catch (NumberFormatException e) {
+		}
+		int size = 3;
 
 		ProduitForm produitForm = (ProduitForm) form;
 
 		produitForm.setEditMode(true);
 		produitForm.setProduit(service.getProduit(ref));
-		produitForm.setProduits(service.listProduits());
+		produitForm.setPages(service.newPageRequest(page, size));
 
 		return mapping.findForward("success");
 	}

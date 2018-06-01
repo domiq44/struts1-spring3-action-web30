@@ -4,50 +4,14 @@
 
 <struts-config>
 
-	<form-beans>
-		<form-bean name="produitForm"
-			type="org.sid.form.ProduitForm" />
-	</form-beans>
-
-	<action-mappings>
-
-		<action path="/produits/index" name="produitForm"
-			type="org.sid.web.ProduitIndexAction" scope="request"
-			validate="false" input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
-		</action>
-
-		<action path="/produits/save" name="produitForm"
-			type="org.sid.web.ProduitSaveAction" scope="request" validate="false"
-			input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
-		</action>
-
-		<action path="/produits/edit" name="produitForm"
-			type="org.sid.web.ProduitEditAction" scope="request" validate="false"
-			input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
-		</action>
-
-		<action path="/produits/delete" name="produitForm"
-			type="org.sid.web.ProduitDeleteAction" scope="request"
-			validate="false" input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
-		</action>
-
-	</action-mappings>
-
 	<controller>
-		<set-property property="processorClass"
-			value="org.springframework.web.struts.AutowiringRequestProcessor" />
+		<set-property property="processorClass" value="org.springframework.web.struts.AutowiringRequestProcessor" />
 	</controller>
 
 	<message-resources parameter="messages" null="false" />
 
-	<plug-in
-		className="org.springframework.web.struts.ContextLoaderPlugIn">
-		<set-property property="contextConfigLocation"
-			value="/WEB-INF/web-app-context.xml" />
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/web-app-context.xml" />
 	</plug-in>
 
 </struts-config>

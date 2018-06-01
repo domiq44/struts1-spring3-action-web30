@@ -1,7 +1,5 @@
 package org.sid.form;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -9,13 +7,14 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.sid.entities.Produit;
+import org.sid.page.Page;
 import org.springframework.util.StringUtils;
 
 public class ProduitForm extends ActionForm {
 	private static final long serialVersionUID = -7676581345118986380L;
 
 	private Produit produit = new Produit();
-	private List<Produit> produits;
+	private Page<Produit> pages;
 	private boolean editMode;
 
 	public Produit getProduit() {
@@ -26,12 +25,12 @@ public class ProduitForm extends ActionForm {
 		this.produit = produit;
 	}
 
-	public List<Produit> getProduits() {
-		return produits;
+	public Page<Produit> getPages() {
+		return pages;
 	}
 
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
+	public void setPages(Page<Produit> pages) {
+		this.pages = pages;
 	}
 
 	public boolean isEditMode() {
