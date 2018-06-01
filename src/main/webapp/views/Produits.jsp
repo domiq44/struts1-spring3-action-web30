@@ -15,35 +15,35 @@
 				<tr>
 					<td><bean:message key="reference.label" /></td>
 					<td>
-						<logic:equal name="editMode" value="false">
-							<html:text name="produit" property="reference" />
+						<logic:equal name="produitForm" property="editMode" value="false">
+							<html:text name="produitForm" property="produit.reference" />
 						</logic:equal>
-						<logic:equal name="editMode" value="true">
-							<html:hidden name="produit" property="reference" />
-							<bean:write name="produit" property="reference" />
+						<logic:equal name="produitForm" property="editMode" value="true">
+							<html:hidden name="produitForm" property="produit.reference" />
+							<bean:write name="produitForm" property="produit.reference" />
 						</logic:equal>
 					</td>
 					<td><html:errors property="reference" /></td>
 				</tr>
 				<tr>
 					<td><bean:message key="designation.label" /></td>
-					<td><html:text name="produit" property="designation" /></td>
+					<td><html:text name="produitForm" property="produit.designation" /></td>
 					<td><html:errors property="designation" /></td>
 				</tr>
 				<tr>
 					<td><bean:message key="prix.label" /></td>
-					<td><html:text name="produit" property="prix" /></td>
+					<td><html:text name="produitForm" property="produit.prix" /></td>
 					<td><html:errors property="prix" /></td>
 				</tr>
 				<tr>
 					<td><bean:message key="quantite.label" /></td>
-					<td><html:text name="produit" property="quantite" /></td>
+					<td><html:text name="produitForm" property="produit.quantite" /></td>
 					<td><html:errors property="quantite" /></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td>
-						<html:checkbox name="produit" property="promo">
+						<html:checkbox name="produitForm" property="produit.promo">
 							<bean:message key="promo.label" />
 						</html:checkbox>
 					</td>
@@ -67,7 +67,7 @@
 				<th><bean:message key="quantite.th" /></th>
 				<th><bean:message key="promo.th" /></th>
 			</tr>
-			<logic:iterate name="produits" id="p">
+			<logic:iterate name="produitForm" property="produits" id="p">
 				<tr>
 					<td><bean:write name="p" property="reference" /></td>
 					<td><bean:write name="p" property="designation" /></td>
@@ -76,14 +76,14 @@
 					<td><bean:write name="p" property="promo" /></td>
 					<td>
 						<html:form action="produits/delete" method="post">
-							<html:hidden property="ref" value="${p.reference}" />
+							<html:hidden name="produitForm" property="ref" value="${p.reference}" />
 							<bean:define id="myMsg"><bean:message key='confirm.delete'/></bean:define>
 							<html:submit value="Delete" onclick="javascript:return confirm('${myMsg}')" />
 						</html:form>
 					</td>
 					<td>
 						<html:form action="produits/edit" method="post">
-							<html:hidden property="ref" value="${p.reference}" />
+							<html:hidden name="produitForm" property="ref" value="${p.reference}" />
 							<html:submit value="Edit" />
 						</html:form>
 					</td>

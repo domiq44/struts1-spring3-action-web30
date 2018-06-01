@@ -8,6 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.sid.entities.Produit;
+import org.sid.form.ProduitForm;
 import org.sid.service.ICatalogueService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +30,11 @@ public class ProduitDeleteAction extends Action {
 		String ref = request.getParameter("ref");
 		service.deleteProduit(ref);
 
-		request.setAttribute("editMode", false);
-		request.setAttribute("produit", new Produit());
-		request.setAttribute("produits", service.listProduits());
+		ProduitForm produitForm = (ProduitForm) form;
+
+		produitForm.setEditMode(false);
+		produitForm.setProduit(new Produit());
+		produitForm.setProduits(service.listProduits());
 
 		return mapping.findForward("success");
 	}

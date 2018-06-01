@@ -7,6 +7,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.sid.form.ProduitForm;
 import org.sid.service.ICatalogueService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,11 @@ public class ProduitEditAction extends Action {
 
 		String ref = request.getParameter("ref");
 
-		request.setAttribute("editMode", true);
-		request.setAttribute("produit", service.getProduit(ref));
-		request.setAttribute("produits", service.listProduits());
+		ProduitForm produitForm = (ProduitForm) form;
+
+		produitForm.setEditMode(true);
+		produitForm.setProduit(service.getProduit(ref));
+		produitForm.setProduits(service.listProduits());
 
 		return mapping.findForward("success");
 	}

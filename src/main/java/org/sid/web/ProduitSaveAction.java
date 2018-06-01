@@ -13,7 +13,6 @@ import org.sid.form.ProduitForm;
 import org.sid.service.ICatalogueService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,16 +29,15 @@ public class ProduitSaveAction extends Action {
 		LOG.debug("execute()");
 
 		ProduitForm produitForm = (ProduitForm) form;
-		Produit produit = new Produit();
-		BeanUtils.copyProperties(produitForm, produit);
+		Produit produit = produitForm.getProduit();
 
 		ActionErrors actionErrors = form.validate(mapping, request);
 		if (null != actionErrors && !actionErrors.isEmpty()) {
 			saveErrors(request, actionErrors);
 
-			request.setAttribute("editMode", false);
-			request.setAttribute("produit", produit);
-			request.setAttribute("produits", service.listProduits());
+			produitForm.setEditMode(false);
+			produitForm.setProduit(produit);
+			produitForm.setProduits(service.listProduits());
 
 			return mapping.getInputForward();
 		}
@@ -52,9 +50,9 @@ public class ProduitSaveAction extends Action {
 			service.updateProduit(produit);
 		}
 
-		request.setAttribute("editMode", false);
-		request.setAttribute("produit", new Produit());
-		request.setAttribute("produits", service.listProduits());
+		produitForm.setEditMode(false);
+		produitForm.setProduit(new Produit());
+		produitForm.setProduits(service.listProduits());
 
 		return mapping.findForward("success");
 	}
