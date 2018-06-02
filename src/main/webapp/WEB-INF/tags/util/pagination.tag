@@ -10,26 +10,24 @@
 <bean:define id="totalElements" name="thispage" property="totalElements" />
 <bean:define id="size" name="thispage" property="size" />
 
-<table>
-	<tr><td>
-		${totalElements} items found, displaying ${offset + 1} to ${offset + size}.
-		<br />
+<div>
+	<p></p>
+	<ul class="pagination">
+		<li>${totalElements} items found, displaying ${offset + 1} to ${offset + size}.</li>
+	</ul>
+	<p></p>
+	<ul class="pagination">
 		<logic:iterate name="thispage" property="pagesNo" id="varpage">
-			<bean:define id="number" name="thispage" property="number" />
-
-			<logic:equal name="varpage" value="${number}">
-				<bean:write name="varpage" />
-			</logic:equal>
-
-			<logic:notEqual name="varpage" value="${number}">
-				<html:link action="${action}" paramName="varpage" paramId="page">
+			<li>
+				<bean:define id="number" name="thispage" property="number" />
+				<bean:define id="aClass">
+					<logic:equal name="varpage" value="${number}">active</logic:equal>
+					<logic:notEqual name="varpage" value="${number}">notActive</logic:notEqual>
+				</bean:define>
+				<html:link action="${action}" paramName="varpage" paramId="page" styleClass="${aClass}">
 					<bean:write name="varpage" />
 				</html:link>
-			</logic:notEqual>
-
-			<logic:notEqual name="varpage" value="${totalPages}">
-				,
-			</logic:notEqual>
+			</li>
 		</logic:iterate>
-	</td></tr>
-</table>
+	</ul>
+</div>
