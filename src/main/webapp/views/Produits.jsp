@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
+	<bean:define id="number" name="produitForm" property="pages.number" />
 	<div>
 		<html:form action="/produits/save" method="post">
 			<table>
@@ -52,6 +53,7 @@
 				<tr>
 					<td colspan="2" align="right">
 						<div>
+							<html:hidden property="page" value="${number}" />
 							<html:submit value="Save" />
 						</div>
 					</td>
@@ -89,6 +91,7 @@
 					<td>
 						<html:form action="produits/edit" method="post">
 							<html:hidden property="ref" value="${p.reference}" />
+							<html:hidden property="page" value="${number}" />
 							<html:submit value="Edit" />
 						</html:form>
 					</td>

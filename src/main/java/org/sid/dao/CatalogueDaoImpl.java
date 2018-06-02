@@ -1,6 +1,8 @@
 package org.sid.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +28,18 @@ public class CatalogueDaoImpl implements ICatalogueDao {
 
 	@Override
 	public List<Produit> listProduits() {
-		return new ArrayList<Produit>(produits.values());
+		// return new ArrayList<Produit>(produits.values());
+		return getSortedProducts(new ArrayList<Produit>(produits.values()));
+	}
+
+	private List<Produit> getSortedProducts(List<Produit> list) {
+		Collections.sort(list, new Comparator<Produit>() {
+			@Override
+			public int compare(Produit p1, Produit p2) {
+				return p1.getReference().compareTo(p2.getReference());
+			}
+		});
+		return list;
 	}
 
 	@Override
