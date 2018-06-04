@@ -1,3 +1,4 @@
+<%@tag import="java.util.Arrays"%>
 <%@tag import="java.util.Set"%>
 <%@tag import="java.util.TreeSet"%>
 
@@ -25,21 +26,15 @@
 				<html:link action="${action}" paramName="varpage" paramId="page" styleClass="${aClass}">
 					<bean:write name="varpage" />
 					<html:param name="size" value="${size}" />
-				</html:link></li>
+				</html:link>
+			</li>
 		</logic:iterate>
 	</ul>
 </div>
-<%
-	Set<Integer> sizes = new TreeSet<Integer>();
-	sizes.add(5);
-	sizes.add(10);
-	sizes.add(15);
-	sizes.add(20);
-	sizes.add(25);
-%>
 <div>
-	${totalElements} items found, displaying ${offset + 1} to ${offset + size}. Records per page
-	<logic:iterate id="current_size" collection="<%=sizes%>">
+	${totalElements} items found, displaying ${offset + 1} to ${offset + size}.
+	Records per page
+	<logic:iterate id="current_size" collection="<%=new TreeSet<Integer>(Arrays.asList(5, 10, 15, 20, 25))%>">
 		<logic:equal name="current_size" value="${size}">
 			${current_size}
 		</logic:equal>
