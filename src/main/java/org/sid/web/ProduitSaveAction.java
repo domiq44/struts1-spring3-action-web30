@@ -33,7 +33,11 @@ public class ProduitSaveAction extends Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 		}
-		int size = 3;
+		int size = 5;
+		try {
+			size = Integer.parseInt(request.getParameter("size"));
+		} catch (NumberFormatException e) {
+		}
 
 		ProduitForm produitForm = (ProduitForm) form;
 		Produit produit = produitForm.getProduit();

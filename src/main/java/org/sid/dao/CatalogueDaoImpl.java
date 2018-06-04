@@ -72,5 +72,17 @@ public class CatalogueDaoImpl implements ICatalogueDao {
 		addProduit(new Produit("JJJJ", "ABCD", 9800, 5, true));
 		addProduit(new Produit("KKKK", "POUY", 7600, 4, true));
 		addProduit(new Produit("LLLL", "SDERK", 3466, 7, true));
+		addProduit(new Produit("MMMM", "ABCD", 9800, 5, true));
+		addProduit(new Produit("NNNN", "POUY", 7600, 4, true));
+		addProduit(new Produit("OOOO", "SDERK", 3466, 7, true));
+		addProduit(new Produit("PPPP", "ABCD", 9800, 5, true));
+		addProduit(new Produit("QQQQ", "POUY", 7600, 4, true));
+		addProduit(new Produit("RRRR", "SDERK", 3466, 7, true));
+		addProduit(new Produit("SSSS", "ABCD", 9800, 5, true));
+		addProduit(new Produit("TTTT", "POUY", 7600, 4, true));
+		addProduit(new Produit("UUUU", "SDERK", 3466, 7, true));
+		addProduit(new Produit("VVVV", "ABCD", 9800, 5, true));
+		addProduit(new Produit("WWWW", "POUY", 7600, 4, true));
+		addProduit(new Produit("XXXX", "SDERK", 3466, 7, true));
 	}
 }

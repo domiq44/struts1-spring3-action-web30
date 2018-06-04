@@ -63,7 +63,7 @@
 	</div>
 	<div>
 		<bean:define id="pages" name="produitForm" property="pages" />
-		<util:pagination thispage="${pages}" action="/produits/index"></util:pagination>
+		<util:pagination thispage="${pages}" action="/produits/index" />
 		<table class="table1">
 			<tr>
 				<th><bean:message key="reference.th" /></th>

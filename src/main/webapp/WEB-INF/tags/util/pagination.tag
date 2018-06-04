@@ -1,3 +1,6 @@
+<%@tag import="java.util.Set"%>
+<%@tag import="java.util.TreeSet"%>
+
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
@@ -10,12 +13,7 @@
 <bean:define id="totalElements" name="thispage" property="totalElements" />
 <bean:define id="size" name="thispage" property="size" />
 
-<div>
-	<p></p>
-	<ul class="pagination">
-		<li>${totalElements} items found, displaying ${offset + 1} to ${offset + size}.</li>
-	</ul>
-	<p></p>
+<div class="center">
 	<ul class="pagination">
 		<logic:iterate name="thispage" property="pagesNo" id="varpage">
 			<li>
@@ -26,8 +24,31 @@
 				</bean:define>
 				<html:link action="${action}" paramName="varpage" paramId="page" styleClass="${aClass}">
 					<bean:write name="varpage" />
-				</html:link>
-			</li>
+					<html:param name="size" value="${size}" />
+				</html:link></li>
 		</logic:iterate>
 	</ul>
+</div>
+<%
+	Set<Integer> sizes = new TreeSet<Integer>();
+	sizes.add(5);
+	sizes.add(10);
+	sizes.add(15);
+	sizes.add(20);
+	sizes.add(25);
+%>
+<div>
+	${totalElements} items found, displaying ${offset + 1} to ${offset + size}. Records per page
+	<logic:iterate id="current_size" collection="<%=sizes%>">
+		<logic:equal name="current_size" value="${size}">
+			${current_size}
+		</logic:equal>
+		<logic:notEqual name="current_size" value="${size}">
+			<html:link action="${action}" paramName="varpage" paramId="page">
+				${current_size}
+				<html:param name="page" value="1" />
+				<html:param name="size" value="${current_size}" />
+			</html:link>
+		</logic:notEqual>
+	</logic:iterate>
 </div>
