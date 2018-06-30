@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import org.sid.entities.Produit;
 import org.sid.form.ProduitForm;
 import org.sid.service.ICatalogueService;
+import org.sid.tools.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +29,8 @@ public class ProduitSaveAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		LOG.debug("execute()");
 
-		int page = 1;
-		try {
-			page = Integer.parseInt(request.getParameter("page"));
-		} catch (NumberFormatException e) {
-		}
-		int size = 5;
-		try {
-			size = Integer.parseInt(request.getParameter("size"));
-		} catch (NumberFormatException e) {
-		}
+		int page = NumberUtils.toInt(request.getParameter("page"), 1);
+		int size = NumberUtils.toInt(request.getParameter("size"), 5);
 
 		ProduitForm produitForm = (ProduitForm) form;
 		Produit produit = produitForm.getProduit();
