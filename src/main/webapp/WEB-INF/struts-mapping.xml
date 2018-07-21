@@ -13,30 +13,30 @@
 
 		<action path="/produits/index" name="produitForm"
 			type="org.sid.web.ProduitIndexAction" scope="request"
-			validate="false" input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
+			validate="false" input="/WEB-INF/views/Produits.jsp">
+			<forward name="success" path="/WEB-INF/views/Produits.jsp" />
 		</action>
 
 		<action path="/produits/save" name="produitForm"
 			type="org.sid.web.ProduitSaveAction" scope="request" validate="false"
-			input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
+			input="/WEB-INF/views/Produits.jsp">
+			<forward name="success" path="/WEB-INF/views/Produits.jsp" />
 		</action>
 
 		<action path="/produits/edit" name="produitForm"
 			type="org.sid.web.ProduitEditAction" scope="request" validate="false"
-			input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
+			input="/WEB-INF/views/Produits.jsp">
+			<forward name="success" path="/WEB-INF/views/Produits.jsp" />
 		</action>
 
 		<action path="/produits/delete" name="produitForm"
 			type="org.sid.web.ProduitDeleteAction" scope="request"
-			validate="false" input="/views/Produits.jsp">
-			<forward name="success" path="/views/Produits.jsp" />
+			validate="false" input="/WEB-INF/views/Produits.jsp">
+			<forward name="success" path="//WEB-INFviews/Produits.jsp" />
 		</action>
 
 		<action path="/example" type="org.sid.web.ExampleAction">
-			<forward name="example" path="/views/example.jsp" />
+			<forward name="example" path="/WEB-INF/views/example.jsp" />
 		</action>
 
 	</action-mappings>

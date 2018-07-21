@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <title><bean:message key="produits.title" /></title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
 </head>
 <body>
 	<bean:define id="number" name="produitForm" property="pages.number" />
