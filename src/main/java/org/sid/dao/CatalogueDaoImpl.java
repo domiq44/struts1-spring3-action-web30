@@ -7,15 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
 import org.sid.entities.Produit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CatalogueDaoImpl implements ICatalogueDao {
+public class CatalogueDaoImpl implements ICatalogueDao, InitializingBean {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CatalogueDaoImpl.class);
 
@@ -57,8 +56,8 @@ public class CatalogueDaoImpl implements ICatalogueDao {
 		produits.put(p.getReference(), p);
 	}
 
-	@PostConstruct
-	public void initialisation() {
+	@Override
+	public void afterPropertiesSet() throws Exception {
 		LOG.info("Initialisation des produits");
 		addProduit(new Produit("AAAA", "ABCD", 9800, 5, true));
 		addProduit(new Produit("BBBB", "POUY", 7600, 4, true));
