@@ -32,7 +32,7 @@
 		<action path="/produits/delete" name="produitForm"
 			type="org.sid.web.ProduitDeleteAction" scope="request"
 			validate="false" input="/WEB-INF/views/Produits.jsp">
-			<forward name="success" path="//WEB-INFviews/Produits.jsp" />
+			<forward name="success" path="/WEB-INF/views/Produits.jsp" />
 		</action>
 
 		<action path="/example" type="org.sid.web.ExampleAction">
