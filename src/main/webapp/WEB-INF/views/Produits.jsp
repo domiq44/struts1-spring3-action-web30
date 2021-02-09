@@ -51,7 +51,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="right">
+					<td colspan="2" style="text-align: right">
 						<div>
 							<html:hidden property="page" value="${number}" />
 							<html:submit value="Save" />

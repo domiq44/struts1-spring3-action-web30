@@ -18,7 +18,7 @@ public class CatalogueDaoImpl implements ICatalogueDao, InitializingBean {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CatalogueDaoImpl.class);
 
-	private Map<String, Produit> produits = new HashMap<String, Produit>();
+	private final Map<String, Produit> produits = new HashMap<>();
 
 	@Override
 	public void addProduit(Produit p) {
@@ -27,8 +27,7 @@ public class CatalogueDaoImpl implements ICatalogueDao, InitializingBean {
 
 	@Override
 	public List<Produit> listProduits() {
-		// return new ArrayList<Produit>(produits.values());
-		return getSortedProducts(new ArrayList<Produit>(produits.values()));
+		return getSortedProducts(new ArrayList<>(produits.values()));
 	}
 
 	private List<Produit> getSortedProducts(List<Produit> list) {

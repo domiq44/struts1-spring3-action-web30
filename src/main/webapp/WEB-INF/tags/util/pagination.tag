@@ -82,10 +82,10 @@ div.center {
 					</html:link>
 				</logic:notEqual>
 				<logic:equal name="number" value="1">
-					<html:link href="#" styleClass="notActive">
+					<html:link href="" styleClass="notActive">
 						First
 					</html:link>
-					<html:link href="#" styleClass="notActive">
+					<html:link href="" styleClass="notActive">
 						Previous
 					</html:link>
 				</logic:equal>
@@ -105,10 +105,10 @@ div.center {
 					</html:link>
 				</logic:notEqual>
 				<logic:equal name="number" value="${totalPages}">
-					<html:link href="#" styleClass="notActive">
+					<html:link href="" styleClass="notActive">
 						Next
 					</html:link>
-					<html:link href="#" styleClass="notActive">
+					<html:link href="" styleClass="notActive">
 						Last
 					</html:link>
 				</logic:equal>

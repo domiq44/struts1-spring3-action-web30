@@ -27,9 +27,9 @@ public class CatalogueServiceImpl implements ICatalogueService {
 
 	@Override
 	public Page<Produit> newPageRequest(int page, int size) {
-		List<Produit> list = dao.listProduits();
-		int offset = size * (page - 1);
-		return new PageImpl<Produit>(list, offset, size);
+		final List<Produit> list = dao.listProduits();
+		final int offset = size * (page - 1);
+		return new PageImpl<>(list, offset, size);
 	}
 
 	@Override

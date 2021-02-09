@@ -14,7 +14,7 @@ public class ProduitForm extends ActionForm {
 	private static final long serialVersionUID = -7676581345118986380L;
 
 	private Produit produit = new Produit();
-	private Page<Produit> pages;
+	private transient Page<Produit> pages;
 	private boolean editMode;
 
 	public Produit getProduit() {
@@ -43,10 +43,10 @@ public class ProduitForm extends ActionForm {
 
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		ActionErrors errors = new ActionErrors();
+		final ActionErrors errors = new ActionErrors();
 
-		int referenceSizeMin = 4;
-		int referenceSizeMax = 10;
+		final int referenceSizeMin = 4;
+		final int referenceSizeMax = 10;
 		if (!StringUtils.hasText(produit.getReference())) {
 			errors.add("reference", new ActionMessage("error.reference.required"));
 		} else if (produit.getReference().length() < referenceSizeMin || produit.getReference().length() > referenceSizeMax) {
@@ -57,14 +57,14 @@ public class ProduitForm extends ActionForm {
 			errors.add("designation", new ActionMessage("error.designation.required"));
 		}
 
-		double prixMinValue = 1.0;
-		double prixMaxValue = 100000.0;
+		final double prixMinValue = 1.0;
+		final double prixMaxValue = 100000.0;
 		if (produit.getPrix() < prixMinValue || produit.getPrix() > prixMaxValue) {
 			errors.add("prix", new ActionMessage("error.prix.invalid", prixMinValue, prixMaxValue));
 		}
 
-		int quantiteMinValue = 1;
-		int quantiteMaxValue = 500;
+		final int quantiteMinValue = 1;
+		final int quantiteMaxValue = 500;
 		if (produit.getQuantite() < quantiteMinValue || produit.getQuantite() > quantiteMaxValue) {
 			errors.add("quantite", new ActionMessage("error.quantite.invalid", quantiteMinValue, quantiteMaxValue));
 		}

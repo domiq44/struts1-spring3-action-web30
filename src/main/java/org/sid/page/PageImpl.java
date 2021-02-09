@@ -6,9 +6,9 @@ import java.util.List;
 
 public class PageImpl<T> implements Page<T> {
 
-	private List<T> content = new ArrayList<T>();
+	private final List<T> content = new ArrayList<>();
 	private int offset;
-	private int length;
+	private final int length;
 
 	public PageImpl(List<T> content, int offset, int length) {
 		this.content.addAll(content);
@@ -33,12 +33,12 @@ public class PageImpl<T> implements Page<T> {
 
 	@Override
 	public int getNumber() {
-		return 1 + (this.offset / this.length);
+		return 1 + this.offset / this.length;
 	}
 
 	@Override
 	public List<T> getContent() {
-		List<T> newList = new ArrayList<T>();
+		final List<T> newList = new ArrayList<>();
 		int to = this.offset + this.length;
 		if (this.offset > content.size()) {
 			this.offset = content.size();
@@ -68,9 +68,9 @@ public class PageImpl<T> implements Page<T> {
 
 	@Override
 	public Collection<Integer> getPagesNo() {
-		Collection<Integer> collection = new ArrayList<Integer>();
+		final Collection<Integer> collection = new ArrayList<>();
 		for (int i = 1; i <= getTotalPages(); i++) {
-			collection.add(new Integer(i));
+			collection.add(i);
 		}
 		return collection;
 	}

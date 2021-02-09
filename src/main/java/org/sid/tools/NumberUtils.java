@@ -7,12 +7,16 @@ public class NumberUtils {
 
 	private static final Logger LOG = LoggerFactory.getLogger(NumberUtils.class);
 
+	private NumberUtils() {
+		//
+	}
+
 	public static int toInt(String value, int defaultValue) {
 		int result = defaultValue;
 		try {
 			result = Integer.parseInt(value);
-		} catch (Exception e) {
-			LOG.error("Error converting String '" + value + "' to Integer, returning default value '" + defaultValue + "'");
+		} catch (final Exception e) {
+			LOG.error("Error converting String '{}' to Integer, returning default value '{}'", value, defaultValue);
 		}
 		return result;
 	}
