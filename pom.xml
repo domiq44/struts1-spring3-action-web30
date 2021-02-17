@@ -33,7 +33,7 @@
 		<logback.version>1.0.9</logback.version>
 		<!-- <logback.version>1.0.10</logback.version> -->
 
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 	</properties>
 
 	<dependencies>
